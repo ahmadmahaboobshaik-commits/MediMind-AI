@@ -1,0 +1,218 @@
+/* ===========================================
+        CHAT MESSAGE
+=========================================== */
+
+.chat-message{
+
+    display:flex;
+
+    align-items:flex-end;
+
+    gap:14px;
+
+    margin-bottom:24px;
+
+    animation:fadeUp .35s ease;
+
+}
+
+.chat-message.user{
+
+    flex-direction:row-reverse;
+
+}
+
+/* ===========================
+        AVATAR
+=========================== */
+
+.avatar{
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-shrink:0;
+
+    font-size:24px;
+
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #4f46e5
+    );
+
+    color:white;
+
+    box-shadow:
+        0 10px 25px rgba(37,99,235,.30);
+
+}
+
+.chat-message.user .avatar{
+
+    background:linear-gradient(
+        135deg,
+        #10b981,
+        #059669
+    );
+
+    box-shadow:
+        0 10px 25px rgba(16,185,129,.30);
+
+}
+
+/* ===========================
+        MESSAGE BOX
+=========================== */
+
+.message{
+
+    max-width:72%;
+
+    padding:18px 22px;
+
+    border-radius:22px;
+
+    background:white;
+
+    color:#1e293b;
+
+    border:1px solid #e2e8f0;
+
+    box-shadow:
+        0 10px 25px rgba(15,23,42,.08);
+
+    transition:.3s;
+
+    word-break:break-word;
+
+}
+
+.message:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.chat-message.user .message{
+
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #4f46e5
+    );
+
+    color:white;
+
+    border:none;
+
+}
+
+/* ===========================
+        TEXT
+=========================== */
+
+.message p{
+
+    margin:0;
+
+    line-height:1.8;
+
+    font-size:15px;
+
+    white-space:pre-wrap;
+
+}
+
+/* ===========================
+        LINKS
+=========================== */
+
+.message a{
+
+    color:#38bdf8;
+
+    text-decoration:none;
+
+}
+
+.message a:hover{
+
+    text-decoration:underline;
+
+}
+
+/* ===========================
+        CODE
+=========================== */
+
+.message code{
+
+    background:rgba(0,0,0,.08);
+
+    padding:2px 6px;
+
+    border-radius:6px;
+
+    font-size:14px;
+
+}
+
+/* ===========================
+        ANIMATION
+=========================== */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(12px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ===========================
+        MOBILE
+=========================== */
+
+@media(max-width:768px){
+
+.message{
+
+    max-width:88%;
+
+    padding:15px;
+
+}
+
+.avatar{
+
+    width:44px;
+
+    height:44px;
+
+    font-size:20px;
+
+}
+
+}

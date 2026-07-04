@@ -1,0 +1,63 @@
+.text-page{
+
+max-width:900px;
+
+margin:auto;
+
+padding:40px;
+
+text-align:center;
+
+}
+
+.text-page input{
+
+width:100%;
+
+padding:16px;
+
+font-size:17px;
+
+margin:25px 0;
+
+border-radius:12px;
+
+border:1px solid #d1d5db;
+
+}
+
+.text-page button{
+
+padding:14px 30px;
+
+border:none;
+
+background:#2563eb;
+
+color:white;
+
+border-radius:12px;
+
+cursor:pointer;
+
+margin:10px;
+
+}
+
+.answer-box{
+
+margin-top:25px;
+
+padding:20px;
+
+background:white;
+
+border-radius:15px;
+
+box-shadow:0 4px 12px rgba(0,0,0,.1);
+
+text-align:left;
+
+white-space:pre-wrap;
+
+}

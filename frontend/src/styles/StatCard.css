@@ -1,0 +1,184 @@
+/* ===========================================================
+                    PREMIUM STAT CARD
+=========================================================== */
+
+.stat-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    background:rgba(255,255,255,.88);
+
+    backdrop-filter:blur(14px);
+
+    border-radius:24px;
+
+    padding:28px;
+
+    border:1px solid rgba(255,255,255,.7);
+
+    box-shadow:
+        0 15px 35px rgba(15,23,42,.08);
+
+    transition:.35s;
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+        0 25px 45px rgba(37,99,235,.18);
+
+}
+
+.stat-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:120px;
+
+    height:120px;
+
+    right:-50px;
+
+    top:-50px;
+
+    border-radius:50%;
+
+    background:rgba(37,99,235,.05);
+
+}
+
+/* ===========================
+        ICON
+=========================== */
+
+.stat-icon{
+
+    width:78px;
+
+    height:78px;
+
+    min-width:78px;
+
+    border-radius:22px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#0f172a;
+
+    box-shadow:
+        0 12px 25px rgba(15,23,42,.08);
+
+}
+
+.stat-icon svg{
+
+    width:34px;
+
+    height:34px;
+
+}
+
+/* ===========================
+        INFO
+=========================== */
+
+.stat-info{
+
+    flex:1;
+
+}
+
+.stat-info p{
+
+    margin:0;
+
+    color:#64748b;
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+.stat-info h2{
+
+    margin:8px 0 6px;
+
+    font-size:38px;
+
+    color:#0f172a;
+
+    font-weight:800;
+
+    line-height:1;
+
+}
+
+.stat-info span{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    padding:6px 12px;
+
+    border-radius:50px;
+
+    background:#eff6ff;
+
+    color:#2563eb;
+
+    font-size:13px;
+
+    font-weight:700;
+
+}
+
+/* ===========================
+        MOBILE
+=========================== */
+
+@media(max-width:768px){
+
+.stat-card{
+
+padding:22px;
+
+}
+
+.stat-icon{
+
+width:64px;
+
+height:64px;
+
+min-width:64px;
+
+}
+
+.stat-info h2{
+
+font-size:30px;
+
+}
+
+}

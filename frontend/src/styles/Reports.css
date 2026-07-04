@@ -1,0 +1,562 @@
+/* ===========================================================
+                    REPORTS PAGE
+=========================================================== */
+
+.reports-page{
+
+    max-width:1300px;
+
+    margin:auto;
+
+    padding:35px;
+
+}
+
+/* ===========================================================
+                    HERO
+=========================================================== */
+
+.reports-hero{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:45px;
+
+    border-radius:28px;
+
+    background:
+    linear-gradient(135deg,#2563eb,#4f46e5,#7c3aed);
+
+    color:white;
+
+    margin-bottom:35px;
+
+    box-shadow:
+    0 20px 45px rgba(79,70,229,.20);
+
+}
+
+.reports-hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:320px;
+
+    height:320px;
+
+    border-radius:50%;
+
+    top:-120px;
+
+    right:-120px;
+
+    background:rgba(255,255,255,.08);
+
+}
+
+.hero-tag{
+
+    display:inline-block;
+
+    padding:10px 20px;
+
+    border-radius:40px;
+
+    background:rgba(255,255,255,.18);
+
+    backdrop-filter:blur(12px);
+
+    font-weight:700;
+
+    margin-bottom:18px;
+
+}
+
+.reports-hero h1{
+
+    font-size:44px;
+
+    margin-bottom:15px;
+
+}
+
+.reports-hero p{
+
+    max-width:700px;
+
+    color:#dbeafe;
+
+    line-height:1.8;
+
+    font-size:17px;
+
+}
+
+/* ===========================================================
+                    SUMMARY CARDS
+=========================================================== */
+
+.summary-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:24px;
+
+    margin-bottom:35px;
+
+}
+
+.summary-card{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:22px;
+
+    text-align:center;
+
+    box-shadow:
+    0 10px 30px rgba(15,23,42,.08);
+
+    transition:.35s;
+
+}
+
+.summary-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+    0 20px 40px rgba(37,99,235,.15);
+
+}
+
+.summary-card svg{
+
+    color:#2563eb;
+
+    margin-bottom:15px;
+
+}
+
+.summary-card h2{
+
+    font-size:36px;
+
+    color:#0f172a;
+
+    margin-bottom:10px;
+
+}
+
+.summary-card p{
+
+    color:#64748b;
+
+}
+
+/* ===========================================================
+                    HEALTH
+=========================================================== */
+
+.health-section{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:24px;
+
+    margin-bottom:35px;
+
+    box-shadow:
+    0 10px 30px rgba(15,23,42,.08);
+
+}
+
+.health-left h2{
+
+    font-size:30px;
+
+    margin-bottom:10px;
+
+}
+
+.health-left p{
+
+    color:#64748b;
+
+}
+
+.health-right{
+
+    width:320px;
+
+}
+
+.health-right h1{
+
+    color:#2563eb;
+
+    font-size:46px;
+
+    margin-bottom:18px;
+
+}
+
+.progress{
+
+    width:100%;
+
+    height:14px;
+
+    border-radius:50px;
+
+    overflow:hidden;
+
+    background:#e5e7eb;
+
+}
+
+.progress-fill{
+
+    height:100%;
+
+    border-radius:50px;
+
+    background:
+    linear-gradient(90deg,#22c55e,#10b981);
+
+}
+
+/* ===========================================================
+                    AI INSIGHTS
+=========================================================== */
+
+.ai-insights{
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:24px;
+
+    margin-bottom:35px;
+
+    box-shadow:
+    0 10px 30px rgba(15,23,42,.08);
+
+}
+
+.ai-insights h2{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:25px;
+
+}
+
+.insight-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:20px;
+
+}
+
+.insight-card{
+
+    padding:28px;
+
+    border-radius:20px;
+
+    border:1px solid #e2e8f0;
+
+    background:
+    linear-gradient(135deg,#ffffff,#f8fafc);
+
+    transition:.35s;
+
+}
+
+.insight-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:
+    0 15px 35px rgba(37,99,235,.10);
+
+}
+
+.insight-card svg{
+
+    color:#2563eb;
+
+    margin-bottom:15px;
+
+}
+
+.insight-card h3{
+
+    margin-bottom:10px;
+
+}
+
+.insight-card p{
+
+    color:#64748b;
+
+    line-height:1.7;
+
+}
+
+/* ===========================================================
+                    EXPORT
+=========================================================== */
+
+.export-section{
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:24px;
+
+    margin-bottom:35px;
+
+    box-shadow:
+    0 10px 30px rgba(15,23,42,.08);
+
+}
+
+.export-section h2{
+
+    margin-bottom:25px;
+
+}
+
+.report-buttons{
+
+    display:flex;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.report-buttons button{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:16px 28px;
+
+    border-radius:14px;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    transition:.3s;
+
+}
+
+.pdf-btn{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+.pdf-btn:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-3px);
+
+}
+
+.excel-btn{
+
+    background:#16a34a;
+
+    color:white;
+
+}
+
+.excel-btn:hover{
+
+    background:#15803d;
+
+    transform:translateY(-3px);
+
+}
+
+/* ===========================================================
+                    TABLE
+=========================================================== */
+
+.low-stock-section{
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:24px;
+
+    box-shadow:
+    0 10px 30px rgba(15,23,42,.08);
+
+}
+
+.low-stock-section h2{
+
+    margin-bottom:25px;
+
+}
+
+.report-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+.report-table thead{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+.report-table th{
+
+    padding:18px;
+
+    text-align:left;
+
+}
+
+.report-table td{
+
+    padding:18px;
+
+    border-bottom:1px solid #e2e8f0;
+
+}
+
+.report-table tbody tr{
+
+    transition:.25s;
+
+}
+
+.report-table tbody tr:hover{
+
+    background:#f8fafc;
+
+}
+
+.no-data{
+
+    text-align:center;
+
+    padding:45px;
+
+    color:#64748b;
+
+}
+
+/* ===========================================================
+                    RESPONSIVE
+=========================================================== */
+
+@media(max-width:900px){
+
+.reports-page{
+
+padding:20px;
+
+}
+
+.reports-hero{
+
+padding:30px;
+
+}
+
+.reports-hero h1{
+
+font-size:32px;
+
+}
+
+.health-section{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+gap:20px;
+
+}
+
+.health-right{
+
+width:100%;
+
+}
+
+.report-buttons{
+
+flex-direction:column;
+
+}
+
+.report-buttons button{
+
+width:100%;
+
+justify-content:center;
+
+}
+
+.report-table{
+
+display:block;
+
+overflow-x:auto;
+
+}
+
+}

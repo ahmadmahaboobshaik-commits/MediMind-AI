@@ -1,0 +1,325 @@
+/* ===========================================================
+                    SIDEBAR
+=========================================================== */
+
+.sidebar{
+
+    width:270px;
+
+    height:100vh;
+
+    position:fixed;
+
+    left:0;
+
+    top:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    padding:20px;
+
+    box-sizing:border-box;
+
+    background:
+    linear-gradient(
+        180deg,
+        #0f172a,
+        #172554,
+        #1e1b4b
+    );
+
+    color:white;
+
+    overflow-y:auto;
+
+    overflow-x:hidden;
+
+    scrollbar-width:thin;
+
+    scrollbar-color:#475569 transparent;
+
+}
+
+/* ===========================================================
+                    LOGO
+=========================================================== */
+
+.sidebar-logo{
+
+    text-align:center;
+
+    margin-bottom:28px;
+
+}
+
+.logo-circle{
+
+    width:70px;
+
+    height:70px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:
+    linear-gradient(
+        135deg,
+        #2563eb,
+        #4f46e5
+    );
+
+    color:white;
+
+    box-shadow:
+        0 12px 28px rgba(79,70,229,.35);
+
+    margin-bottom:14px;
+
+}
+.sidebar-logo h2{
+
+    font-size:25px;
+
+    margin:0;
+
+    font-weight:800;
+
+}
+
+.sidebar-logo p{
+
+    margin-top:8px;
+
+    color:#cbd5e1;
+
+    font-size:14px;
+
+}
+
+/* ===========================================================
+                    MENU
+=========================================================== */
+
+.sidebar-menu{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+.menu-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:13px 16px;
+
+    border-radius:14px;
+
+    color:#e2e8f0;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+    font-weight:600;
+
+}
+
+.menu-item svg{
+
+    flex-shrink:0;
+
+}
+
+.menu-item:hover{
+
+    background:rgba(255,255,255,.10);
+
+    color:white;
+
+    transform:translateX(5px);
+
+}
+
+.menu-item.active{
+
+    background:
+    linear-gradient(
+        90deg,
+        #2563eb,
+        #4f46e5
+    );
+
+    color:white;
+
+    box-shadow:
+        0 10px 25px rgba(37,99,235,.30);
+
+}
+
+/* ===========================================================
+                    STATUS
+=========================================================== */
+
+.sidebar-status{
+
+    margin-top:22px;
+
+    padding:16px;
+
+    border-radius:16px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(10px);
+
+}
+
+.status-title{
+
+    font-size:13px;
+
+    color:#cbd5e1;
+
+    margin-bottom:12px;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+}
+
+.status-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-size:14px;
+
+    color:#4ade80;
+
+    font-weight:700;
+
+}
+
+.status-item svg{
+
+    fill:#4ade80;
+
+}
+
+/* ===========================================================
+                    BOTTOM
+=========================================================== */
+
+.sidebar-bottom{
+
+    margin-top:auto;
+
+    padding-top:20px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+}
+
+.home-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    text-decoration:none;
+
+    color:white;
+
+    background:
+    linear-gradient(
+        90deg,
+        #2563eb,
+        #4f46e5
+    );
+
+    padding:13px;
+
+    border-radius:14px;
+
+    font-weight:700;
+
+    transition:.3s;
+
+}
+.home-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 15px 30px rgba(79,70,229,.35);
+
+}
+
+.version{
+
+    text-align:center;
+
+    color:#94a3b8;
+
+    font-size:13px;
+
+}
+
+/* ===========================================================
+                    SCROLLBAR
+=========================================================== */
+
+.sidebar::-webkit-scrollbar{
+
+    width:6px;
+
+}
+
+.sidebar::-webkit-scrollbar-track{
+
+    background:transparent;
+
+}
+
+.sidebar::-webkit-scrollbar-thumb{
+
+    background:#475569;
+
+    border-radius:20px;
+
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover{
+
+    background:#64748b;
+
+}

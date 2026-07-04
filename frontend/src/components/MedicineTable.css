@@ -1,0 +1,388 @@
+/* ===========================================================
+                PREMIUM MEDICINE TABLE
+=========================================================== */
+
+.medicine-table-container{
+
+    width:100%;
+
+    background:rgba(255,255,255,.92);
+
+    backdrop-filter:blur(16px);
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 18px 45px rgba(15,23,42,.08);
+
+}
+
+/* ================= TABLE ================= */
+
+.medicine-table{
+
+    width:100%;
+
+    border-collapse:separate;
+
+    border-spacing:0 14px;
+
+    padding:0 15px 15px;
+
+}
+
+/* ================= HEADER ================= */
+
+.medicine-table thead{
+
+    background:transparent;
+
+}
+
+.medicine-table th{
+
+    padding:18px;
+
+    text-align:left;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    color:#475569;
+
+}
+
+/* ================= BODY ================= */
+
+.medicine-table tbody tr{
+
+    background:white;
+
+    transition:.3s;
+
+    box-shadow:
+        0 8px 20px rgba(15,23,42,.05);
+
+}
+
+.medicine-table tbody tr:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 15px 30px rgba(37,99,235,.12);
+
+}
+
+.medicine-table tbody td{
+
+    padding:22px 18px;
+
+    border:none;
+
+    vertical-align:middle;
+
+}
+
+.medicine-table tbody td:first-child{
+
+    border-radius:18px 0 0 18px;
+
+}
+
+.medicine-table tbody td:last-child{
+
+    border-radius:0 18px 18px 0;
+
+}
+
+/* ================= MEDICINE ================= */
+
+.medicine-info{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+}
+
+.medicine-icon{
+
+    width:58px;
+
+    height:58px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #4f46e5
+    );
+
+    color:white;
+
+    box-shadow:
+        0 10px 22px rgba(79,70,229,.22);
+
+}
+
+.medicine-details h4{
+
+    margin:0 0 8px;
+
+    font-size:17px;
+
+    color:#0f172a;
+
+}
+
+.medicine-details p{
+
+    margin:0;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    color:#64748b;
+
+    font-size:14px;
+
+}
+
+.medicine-details span{
+
+    display:block;
+
+    margin-top:6px;
+
+    color:#94a3b8;
+
+    font-size:13px;
+
+}
+
+/* ================= CATEGORY ================= */
+
+.category-pill{
+
+    display:inline-block;
+
+    padding:8px 15px;
+
+    border-radius:50px;
+
+    background:#eff6ff;
+
+    color:#2563eb;
+
+    font-size:13px;
+
+    font-weight:700;
+
+}
+
+/* ================= STOCK ================= */
+
+.stock-box{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:10px 16px;
+
+    border-radius:14px;
+
+    background:#f8fafc;
+
+    font-weight:700;
+
+    color:#0f172a;
+
+}
+
+.stock-box svg{
+
+    color:#2563eb;
+
+}
+
+/* ================= STATUS ================= */
+
+.status-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:8px 16px;
+
+    border-radius:50px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+}
+
+.status-badge.healthy{
+
+    background:#dcfce7;
+
+    color:#15803d;
+
+}
+
+.status-badge.low-stock{
+
+    background:#fef3c7;
+
+    color:#b45309;
+
+}
+
+.status-badge.expiring-soon{
+
+    background:#dbeafe;
+
+    color:#2563eb;
+
+}
+
+.status-badge.expired{
+
+    background:#fee2e2;
+
+    color:#dc2626;
+
+}
+
+/* ================= ACTIONS ================= */
+
+.action-buttons{
+
+    display:flex;
+
+    gap:12px;
+
+}
+
+.edit-btn,
+.delete-btn{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:12px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.edit-btn{
+
+    background:#dbeafe;
+
+    color:#2563eb;
+
+}
+
+.edit-btn:hover{
+
+    background:#2563eb;
+
+    color:white;
+
+    transform:translateY(-3px);
+
+}
+
+.delete-btn{
+
+    background:#fee2e2;
+
+    color:#dc2626;
+
+}
+
+.delete-btn:hover{
+
+    background:#dc2626;
+
+    color:white;
+
+    transform:translateY(-3px);
+
+}
+
+/* ================= EMPTY ================= */
+
+.no-data{
+
+    text-align:center;
+
+    padding:60px;
+
+    color:#64748b;
+
+    font-size:16px;
+
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1100px){
+
+.medicine-table-container{
+
+overflow-x:auto;
+
+}
+
+.medicine-table{
+
+min-width:1050px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.medicine-info{
+
+min-width:260px;
+
+}
+
+}
