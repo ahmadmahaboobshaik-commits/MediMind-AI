@@ -49,16 +49,14 @@ Google Gemini API Key
 Installation
 Clone the repository:
 
-Bash
 git clone https://github.com/ahmadmahaboobshaik-commits/MediMind-AI.git
 cd MediMind-AI
-Setup Backend:
 
-Bash
+
+
 cd backend
 pip install -r requirements.txt
 uvicorn main:app --reload
-Setup Frontend:
 
 Bash
 cd ../frontend
