@@ -1,59 +1,43 @@
-💊 MediMind-AI
-AI-Powered Pharmacy Management & Medicine Intelligence Platform
+# 💊 MediMind-AI
+**AI-Powered Pharmacy Management & Medicine Intelligence Platform**
 
-🌍 Overview
-MediMind-AI is an intelligent, AI-powered pharmacy management platform designed to streamline pharmacy operations. By integrating advanced OCR technology and Google Gemini AI, it automates prescription processing and provides actionable medical insights.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![React](https://img.shields.io/badge/Frontend-React-61DAFB?logo=react)](https://react.dev/)
+[![FastAPI](https://img.shields.io/badge/Backend-FastAPI-05998B?logo=fastapi)](https://fastapi.tiangolo.com/)
 
-🏆 Hackathon Submission
-Hackathon: Takeover Hackathon
+---
 
-Team Name: Code Rescuers
+## 🌍 Overview
+MediMind-AI is an intelligent, AI-powered pharmacy management platform designed to modernize pharmacy operations. By integrating advanced OCR technology and Google Gemini AI, it automates prescription processing and provides actionable medical insights, significantly reducing manual entry errors.
 
-Team Members:
+## 🏆 Hackathon Submission
+* **Hackathon:** Takeover Hackathon
+* **Team Name:** Code Rescuers
+* **Team Members:**
+    * V.A. Asadulla Tariq
+    * Shaik Ahmad
+    * G.K. Hemashankar
 
-V.A. Asadulla Tariq
+## ✨ Key Features
+* **Automated Prescription Processing:** Uses OCR to extract medicine details directly from prescription images.
+* **AI-Powered Insights:** Leverages Google Gemini AI to analyze medicine data and provide deep insights.
+* **Pharmacy Management:** Centralized dashboard for efficient inventory and record tracking.
+* **Responsive Design:** Optimized for seamless performance across desktop and mobile devices.
 
-Shaik Ahmad
+## 🛠️ Tech Stack
+### Frontend
+* **React** (Vite)
+### Backend
+* **FastAPI** (Python)
+* **Google Gemini API**
 
-G.K. Hemashankar
+## 🚀 Getting Started
 
-✨ Key Features
-Automated Prescription Processing: Uses OCR to extract medicine details from images.
+### 1. Prerequisites
+Ensure you have [Node.js](https://nodejs.org/) and [Python 3.9+](https://www.python.org/) installed on your machine.
 
-AI-Powered Insights: Leverages Google Gemini for deep medical data analysis.
-
-Pharmacy Management: Centralized dashboard for inventory and records.
-
-Responsive UI: Built with React for seamless cross-device usage.
-
-🛠️ Tech Stack
-Frontend
-React
-
-Vite
-
-Backend
-FastAPI
-
-Python
-
-Google Gemini API
-
-🚀 Installation
-Backend
-Bash
+### 2. Setup Backend
+```bash
 cd backend
 pip install -r requirements.txt
 uvicorn main:app --reload
-
-Frontend
-Bash
-cd frontend
-npm install
-npm run dev
-
-🌐 Live Demo
-Access the platform here: MediMind-AI
-
-🤝 Contributing
-Contributions are welcome! Please feel free to submit a Pull Request or open an Issue.
