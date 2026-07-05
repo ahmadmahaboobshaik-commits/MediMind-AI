@@ -29,7 +29,7 @@ MediMind-AI is an intelligent, AI-powered pharmacy management platform designed 
 - React (Vite)
 ### Backend
 - FastAPI (Python)
-- Google Gemini API
+- Google Gemini AI
 
 ## 🚀 Getting Started
 
@@ -41,8 +41,17 @@ Ensure you have [Node.js](https://nodejs.org/) and [Python 3.9+](https://www.pyt
 cd backend
 pip install -r requirements.txt
 uvicorn main:app --reload
+```
 
 ### 3. Setup Frontend
+```bash
 cd frontend
 npm install
 npm run dev
+```
+
+## 🌐 Live Demo
+Access the live platform here: [MediMind-AI](https://medi-mind-ai-virid.vercel.app/)
+
+## 🤝 Contributing
+Contributions are welcome! Please feel free to submit a Pull Request or open an Issue if you have suggestions for improvements.
