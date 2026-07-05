@@ -43,14 +43,4 @@ pip install -r requirements.txt
 uvicorn main:app --reload
 
 
- 3.Setup Frontend
-'''bash
-cd frontend
-npm install
-npm run dev
-
-🌐 Live Demo
-Access the live platform here: MediMind-AI
-
-🤝 Contributing
-Contributions are welcome! Please feel free to submit a Pull Request or open an Issue if you have suggestions for improvements.
+#3. Setup Frontend
