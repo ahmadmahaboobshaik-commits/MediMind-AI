@@ -11,25 +11,25 @@
 MediMind-AI is an intelligent, AI-powered pharmacy management platform designed to modernize pharmacy operations. By integrating advanced OCR technology and Google Gemini AI, it automates prescription processing and provides actionable medical insights, significantly reducing manual entry errors.
 
 ## 🏆 Hackathon Submission
-* **Hackathon:** Takeover Hackathon
-* **Team Name:** Code Rescuers
-* **Team Members:**
-    * V.A. Asadulla Tariq
-    * Shaik Ahmad
-    * G.K. Hemashankar
+- **Hackathon:** Takeover Hackathon
+- **Team Name:** Code Rescuers
+- **Team Members:**
+    - V.A. Asadulla Tariq
+    - Shaik Ahmad
+    - G.K. Hemashankar
 
 ## ✨ Key Features
-* **Automated Prescription Processing:** Uses OCR to extract medicine details directly from prescription images.
-* **AI-Powered Insights:** Leverages Google Gemini AI to analyze medicine data and provide deep insights.
-* **Pharmacy Management:** Centralized dashboard for efficient inventory and record tracking.
-* **Responsive Design:** Optimized for seamless performance across desktop and mobile devices.
+- **Automated Prescription Processing:** Uses OCR to extract medicine details directly from prescription images.
+- **AI-Powered Insights:** Leverages Google Gemini AI to analyze medicine data and provide deep insights.
+- **Pharmacy Management:** Centralized dashboard for efficient inventory and record tracking.
+- **Responsive Design:** Optimized for seamless performance across desktop and mobile devices.
 
 ## 🛠️ Tech Stack
 ### Frontend
-* **React** (Vite)
+- React (Vite)
 ### Backend
-* **FastAPI** (Python)
-* **Google Gemini API**
+- FastAPI (Python)
+- Google Gemini API
 
 ## 🚀 Getting Started
 
@@ -42,5 +42,7 @@ cd backend
 pip install -r requirements.txt
 uvicorn main:app --reload
 
-
-#3. Setup Frontend
+### 3. Setup Frontend
+cd frontend
+npm install
+npm run dev
