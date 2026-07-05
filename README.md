@@ -1,5 +1,8 @@
-MediMind-AI
-MediMind-AI is an intelligent, AI-powered pharmacy management and medicine intelligence platform designed to streamline pharmacy operations through automation and advanced data insights.
+💊 MediMind-AI
+AI-Powered Pharmacy Management & Medicine Intelligence Platform
+
+🌍 Overview
+MediMind-AI is an intelligent, AI-powered pharmacy management platform designed to streamline pharmacy operations. By integrating advanced OCR technology and Google Gemini AI, it automates prescription processing and provides actionable medical insights.
 
 🏆 Hackathon Submission
 Hackathon: Takeover Hackathon
@@ -14,51 +17,43 @@ Shaik Ahmad
 
 G.K. Hemashankar
 
-🚀 Overview
-MediMind-AI addresses the complexities of traditional pharmacy management by integrating OCR technology and Google Gemini AI. Our solution allows pharmacists to process prescriptions instantly and gain intelligent insights into medicine details, reducing manual entry errors and improving patient service speed.
-
 ✨ Key Features
-Automated Prescription Processing: Uses OCR to extract crucial medicine information directly from scanned prescriptions.
+Automated Prescription Processing: Uses OCR to extract medicine details from images.
 
-AI-Powered Intelligence: Leverages Google Gemini AI to analyze medicine data and provide real-time recommendations.
+AI-Powered Insights: Leverages Google Gemini for deep medical data analysis.
 
-Streamlined Inventory Management: Centralized dashboard to track and manage medicine records efficiently.
+Pharmacy Management: Centralized dashboard for inventory and records.
 
-Responsive Web Interface: Built with React for a seamless experience on both desktop and mobile devices.
+Responsive UI: Built with React for seamless cross-device usage.
 
 🛠️ Tech Stack
-Frontend: React
+Frontend
+React
 
-Backend: FastAPI
+Vite
 
-Intelligence: Google Gemini AI
+Backend
+FastAPI
 
-Vision: OCR (Optical Character Recognition)
+Python
 
-🌐 Live Demo
-Access the platform here: MediMind-AI
+Google Gemini API
 
-⚙️ Getting Started
-Prerequisites
-Node.js
-
-Python 3.9+
-
-Google Gemini API Key
-
-Installation
-Clone the repository:
-
-git clone https://github.com/ahmadmahaboobshaik-commits/MediMind-AI.git
-cd MediMind-AI
-
-
-
+🚀 Installation
+Backend
+Bash
 cd backend
 pip install -r requirements.txt
 uvicorn main:app --reload
 
+Frontend
 Bash
-cd ../frontend
+cd frontend
 npm install
-npm start
+npm run dev
+
+🌐 Live Demo
+Access the platform here: MediMind-AI
+
+🤝 Contributing
+Contributions are welcome! Please feel free to submit a Pull Request or open an Issue.
