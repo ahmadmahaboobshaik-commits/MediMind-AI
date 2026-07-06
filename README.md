@@ -264,12 +264,11 @@ https://medi-mind-ai-virid.vercel.app/
 
 Add screenshots of:
 
-- Home Page
-- Dashboard
-- Inventory
-- AI Pharmacist
-- Smart Scanner
-- Reports
+<img width="1900" height="872" alt="image" src="https://github.com/user-attachments/assets/12524f98-035d-45a4-a383-deb2316c79ef" />
+<img width="1897" height="870" alt="image" src="https://github.com/user-attachments/assets/efa4b2f5-91de-43fb-aca9-ce78c4481566" />
+<img width="1897" height="872" alt="image" src="https://github.com/user-attachments/assets/42afedc0-43c8-4f29-81b6-c94bf8ce0bc6" />
+<img width="1897" height="868" alt="image" src="https://github.com/user-attachments/assets/f340c86e-fd6f-4566-bbd6-0d83e0a948d1" />
+
 
 ---
 
