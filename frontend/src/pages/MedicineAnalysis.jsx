@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+
 import { analyzeMedicineImage } from "../services/api";
 import { useMedicines } from "../context/MedicineContext";
 
@@ -19,6 +20,9 @@ function MedicineAnalysis() {
 
   const [loading, setLoading] = useState(false);
 
+  const [loadingText, setLoadingText] =
+    useState("Uploading Image...");
+
   const [medicine, setMedicine] = useState(null);
 
   const [error, setError] = useState("");
@@ -33,20 +37,52 @@ function MedicineAnalysis() {
 
       setError("");
 
-      const result = await analyzeMedicineImage(file);
+      setLoadingText("📤 Uploading Image...");
+
+      setTimeout(() => {
+
+        setLoadingText(
+          "🧠 AI is reading the medicine..."
+        );
+
+      }, 1200);
+
+      setTimeout(() => {
+
+        setLoadingText(
+          "💊 Identifying medicine..."
+        );
+
+      }, 2500);
+
+      setTimeout(() => {
+
+        setLoadingText(
+          "📋 Preparing analysis..."
+        );
+
+      }, 3800);
+
+      const result =
+        await analyzeMedicineImage(file);
 
       setMedicine(result);
 
-      // ⭐ Save for AI Assistant
       setCurrentMedicine(result);
 
-    } catch (err) {
+    }
+
+    catch (err) {
 
       console.error(err);
 
-      setError("Unable to analyze medicine.");
+      setError(
+        "Unable to analyze medicine. Please upload a clearer image."
+      );
 
-    } finally {
+    }
+
+    finally {
 
       setLoading(false);
 
@@ -70,103 +106,243 @@ function MedicineAnalysis() {
 
       <button
         className="back-btn"
-        onClick={() => navigate("/medicine-assistant")}
+        onClick={() =>
+          navigate("/medicine-assistant")
+        }
       >
         ← Back
       </button>
 
       <div className="analysis-card">
 
-        {image ? (
+        {
 
-          <img
-            src={image}
-            alt="Medicine"
-            className="medicine-preview"
-          />
+          image ?
 
-        ) : (
+          (
 
-          <div className="medicine-image">
-            💊
-          </div>
+            <img
+              src={image}
+              alt="Medicine"
+              className="medicine-preview"
+            />
 
-        )}
+          )
 
-        <h1>Medicine Analysis</h1>
+          :
 
-        {loading ? (
+          (
 
-          <p className="waiting">
-            🤖 Gemini is analyzing...
-          </p>
+            <div className="medicine-image">
 
-        ) : (
+              💊
 
-          <p className="waiting">
-            Analysis Complete
-          </p>
+            </div>
 
-        )}
+          )
 
-        {error && (
+        }
 
-          <p
-            style={{
-              color: "red",
-              textAlign: "center"
-            }}
-          >
-            {error}
-          </p>
+        <h1>
 
-        )}
+          Medicine Analysis
 
-        <div className="result-section">
+        </h1>
 
-          <div className="result-box">
-            <h3>Medicine Name</h3>
-            <p>{medicine?.name || "--"}</p>
-          </div>
+        {
 
-          <div className="result-box">
-            <h3>Uses</h3>
-            <p>{medicine?.uses || "--"}</p>
-          </div>
+          loading ?
 
-          <div className="result-box">
-            <h3>Dosage</h3>
-            <p>{medicine?.dosage || "--"}</p>
-          </div>
+          (
 
-          <div className="result-box">
-            <h3>Warnings</h3>
-            <p>{medicine?.warnings || "--"}</p>
-          </div>
+            <p className="waiting">
 
-          <div className="result-box">
-            <h3>Side Effects</h3>
-            <p>{medicine?.sideEffects || "--"}</p>
-          </div>
+              {loadingText}
 
-          <div className="result-box">
-            <h3>Storage</h3>
-            <p>{medicine?.storage || "--"}</p>
-          </div>
+            </p>
 
-        </div>
+          )
+
+          :
+
+          (
+
+            <p className="waiting success">
+
+              ✅ Analysis Complete
+
+            </p>
+
+          )
+
+        }
+
+        {
+
+          error &&
+
+          (
+
+            <p
+              style={{
+                color: "#ef4444",
+                textAlign: "center",
+                marginTop: "15px",
+                fontWeight: "600"
+              }}
+            >
+
+              {error}
+
+            </p>
+
+          )
+
+        }
+
+        {
+
+          medicine &&
+
+          (
+
+            <div className="result-section">
+
+              <div className="result-box">
+
+                <h3>
+
+                  💊 Medicine Name
+
+                </h3>
+
+                <p>
+
+                  {medicine.name || "--"}
+
+                </p>
+
+              </div>
+
+              <div className="result-box">
+
+                <h3>
+
+                  🎯 Confidence
+
+                </h3>
+
+                <p>
+
+                  {medicine.confidence || "High"}
+
+                </p>
+
+              </div>
+
+              <div className="result-box">
+
+                <h3>
+
+                  ✅ Uses
+
+                </h3>
+
+                <p>
+
+                  {medicine.uses || "--"}
+
+                </p>
+
+              </div>
+
+              <div className="result-box">
+
+                <h3>
+
+                  💉 Dosage
+
+                </h3>
+
+                <p>
+
+                  {medicine.dosage || "--"}
+
+                </p>
+
+              </div>
+
+              <div className="result-box">
+
+                <h3>
+
+                  ⚠ Warnings
+
+                </h3>
+
+                <p>
+
+                  {medicine.warnings || "--"}
+
+                </p>
+
+              </div>
+
+              <div className="result-box">
+
+                <h3>
+
+                  ❌ Side Effects
+
+                </h3>
+
+                <p>
+
+                  {medicine.sideEffects || "--"}
+
+                </p>
+
+              </div>
+
+              <div className="result-box">
+
+                <h3>
+
+                  📦 Storage
+
+                </h3>
+
+                <p>
+
+                  {medicine.storage || "--"}
+
+                </p>
+
+              </div>
+
+            </div>
+
+          )
+
+        }
 
         <div className="analysis-buttons">
 
           <button className="speak-btn">
+
             🔊 Read Aloud
+
           </button>
 
           <button
             className="ask-btn"
-            onClick={() => navigate("/assistant")}
+            onClick={() =>
+              navigate("/assistant")
+            }
           >
+
             🤖 Ask AI
+
           </button>
 
         </div>
