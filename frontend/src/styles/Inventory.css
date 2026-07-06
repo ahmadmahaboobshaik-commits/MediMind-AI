@@ -90,24 +90,139 @@ overflow:auto;
 
 }
 
-@media(max-width:1100px){
+/* ===========================================================
+                    RESPONSIVE
+=========================================================== */
+
+/* ---------- Tablet ---------- */
+
+@media (max-width:1024px){
 
 .inventory-toolbar{
 
-grid-template-columns:1fr;
+    grid-template-columns:1fr;
+
+    gap:18px;
 
 }
 
 .inventory-hero{
 
-padding:30px;
+    padding:32px;
 
 }
 
 .inventory-hero h1{
 
-font-size:32px;
+    font-size:34px;
 
 }
+
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width:768px){
+
+.inventory-hero{
+
+    padding:24px 20px;
+
+    text-align:center;
+
+}
+
+.inventory-hero h1{
+
+    font-size:28px;
+
+}
+
+.inventory-hero p{
+
+    font-size:15px;
+
+    line-height:1.7;
+
+}
+
+.hero-tag{
+
+    font-size:13px;
+
+    padding:8px 16px;
+
+}
+
+.inventory-toolbar{
+
+    grid-template-columns:1fr;
+
+    gap:15px;
+
+}
+
+.inventory-toolbar>*{
+
+    width:100%;
+
+}
+
+.table-container{
+
+    padding:15px;
+
+}
+
+}
+
+/* ---------- Small Phones ---------- */
+
+@media (max-width:480px){
+
+.inventory-hero{
+
+    padding:20px 16px;
+
+}
+
+.inventory-hero h1{
+
+    font-size:24px;
+
+}
+
+.inventory-hero p{
+
+    font-size:14px;
+
+}
+
+}
+.refresh-btn{
+
+    background:#16a34a;
+
+    color:white;
+
+    border:none;
+
+    border-radius:14px;
+
+    padding:14px 20px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.refresh-btn:hover{
+
+    background:#15803d;
+
+    transform:translateY(-2px);
 
 }

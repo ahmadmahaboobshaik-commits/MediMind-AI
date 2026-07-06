@@ -1,14 +1,19 @@
 import { useState } from "react";
+
+import Swal from "sweetalert2";
+
+import { toast } from "react-toastify";
+
 import {
   Pill,
   SquarePen,
   Trash2,
   Building2,
-  MapPin,
   Package,
 } from "lucide-react";
 
 import { useMedicines } from "../context/MedicineContext";
+
 import { getMedicineStatus } from "../services/medicineService";
 
 import EditMedicineModal from "./EditMedicineModal";
@@ -29,9 +34,11 @@ function MedicineTable() {
 
   } = useMedicines();
 
-  const [showEditModal, setShowEditModal] = useState(false);
+  const [showEditModal, setShowEditModal] =
+    useState(false);
 
-  const [selectedMedicine, setSelectedMedicine] = useState(null);
+  const [selectedMedicine, setSelectedMedicine] =
+    useState(null);
 
   function handleEdit(medicine) {
 
@@ -41,16 +48,55 @@ function MedicineTable() {
 
   }
 
+  async function handleDelete(medicine) {
+
+    const result = await Swal.fire({
+
+      title: "Delete Medicine?",
+
+      html: `
+        <b>${medicine.name}</b><br/><br/>
+        This action cannot be undone.
+      `,
+
+      icon: "warning",
+
+      showCancelButton: true,
+
+      confirmButtonColor: "#ef4444",
+
+      cancelButtonColor: "#64748b",
+
+      confirmButtonText: "🗑 Delete",
+
+      cancelButtonText: "Cancel",
+
+      reverseButtons: true,
+
+    });
+
+    if (!result.isConfirmed) return;
+
+    deleteMedicine(medicine.id);
+
+    toast.success("🗑 Medicine deleted successfully!");
+
+  }
+
   const filteredMedicines = medicines.filter((medicine) => {
 
     const matchesSearch =
+
       medicine.name
         .toLowerCase()
         .includes(searchTerm.toLowerCase());
 
     const matchesCategory =
+
       selectedCategory === "All Categories"
+
         ? true
+
         : medicine.category === selectedCategory;
 
     return matchesSearch && matchesCategory;
@@ -89,7 +135,9 @@ function MedicineTable() {
 
             {
 
-              filteredMedicines.length === 0 ? (
+              filteredMedicines.length === 0 ?
+
+              (
 
                 <tr>
 
@@ -98,161 +146,155 @@ function MedicineTable() {
                     className="no-data"
                   >
 
-                    No medicines found.
+                    📦 No medicines found.
 
                   </td>
 
                 </tr>
 
-              ) : (
+              )
 
-                filteredMedicines.map((medicine) => {
+              :
 
-                  const status =
-                    getMedicineStatus(medicine);
+              filteredMedicines.map((medicine) => {
 
-                  return (
+                const status =
+                  getMedicineStatus(medicine);
 
-                    <tr key={medicine.id}>
+                return (
 
-                      <td>
+                  <tr key={medicine.id}>
 
-                        <div className="medicine-info">
+                    <td>
 
-                          <div className="medicine-icon">
+                      <div className="medicine-info">
 
-                            <Pill size={24} />
+                        <div className="medicine-icon">
 
-                          </div>
-
-                          <div className="medicine-details">
-
-                            <h4>
-
-                              {medicine.name}
-
-                            </h4>
-
-                            <p>
-
-                              <Building2 size={14} />
-
-                              {medicine.manufacturer}
-
-                            </p>
-
-                            <span>
-
-                              Batch: {medicine.batchNumber}
-
-                            </span>
-
-                          </div>
+                          <Pill size={24} />
 
                         </div>
 
-                      </td>
+                        <div className="medicine-details">
 
-                      <td>
+                          <h4>
 
-                        <span className="category-pill">
+                            {medicine.name}
 
-                          {medicine.category}
+                          </h4>
 
-                        </span>
+                          <p>
 
-                      </td>
+                            <Building2 size={14} />
 
-                      <td>
+                            {medicine.manufacturer}
 
-                        <div className="stock-box">
+                          </p>
 
-                          <Package size={16} />
+                          <span>
 
-                          {medicine.stock}
+                            Batch: {medicine.batchNumber}
+
+                          </span>
 
                         </div>
 
-                      </td>
+                      </div>
 
-                      <td>
+                    </td>
 
-                        {medicine.expiryDate}
+                    <td>
 
-                      </td>
+                      <span className="category-pill">
 
-                      <td>
-                        <span
-                          className={`status-badge ${status
-                            .replace(/\s+/g, "-")
-                            .toLowerCase()}`}
-                        >
+                        {medicine.category}
 
-                          {
+                      </span>
 
-                            status === "Healthy"
-                              ? "🟢 Healthy"
-                              : status === "Low Stock"
-                              ? "🟡 Low Stock"
-                              : status === "Expiring Soon"
-                              ? "🔵 Expiring Soon"
-                              : "🔴 Expired"
+                    </td>
 
+                    <td>
+
+                      <div className="stock-box">
+
+                        <Package size={16} />
+
+                        {medicine.stock}
+
+                      </div>
+
+                    </td>
+
+                    <td>
+
+                      {medicine.expiryDate}
+
+                    </td>
+
+                    <td>
+                      <span
+                        className={`status-badge ${status
+                          .replace(/\s+/g, "-")
+                          .toLowerCase()}`}
+                      ></span>
+
+                      {
+                        status === "Healthy"
+                          ? "🟢 Healthy"
+                          : status === "Low Stock"
+                          ? "🟡 Low Stock"
+                          : status === "Expiring Soon"
+                          ? "🔵 Expiring Soon"
+                          : "🔴 Expired"
+                      }
+
+                    </td>
+
+                    <td>
+
+                      <div className="action-buttons">
+
+                        <button
+
+                          className="edit-btn"
+
+                          onClick={() =>
+                            handleEdit(medicine)
                           }
 
-                        </span>
-                      </td>
+                          title="Edit Medicine"
 
-                      <td>
+                        >
 
-                        <div className="action-buttons">
+                          <SquarePen size={18} />
 
-                          <button
-                            className="edit-btn"
-                            onClick={() =>
-                              handleEdit(medicine)
-                            }
-                          >
+                        </button>
 
-                            <SquarePen size={18} />
+                        <button
 
-                          </button>
+                          className="delete-btn"
 
-                          <button
-                            className="delete-btn"
-                            onClick={() => {
+                          onClick={() =>
+                            handleDelete(medicine)
+                          }
 
-                              const confirmDelete =
-                                window.confirm(
-                                  `Delete ${medicine.name}?`
-                                );
+                          title="Delete Medicine"
 
-                              if (confirmDelete) {
+                        >
 
-                                deleteMedicine(
-                                  medicine.id
-                                );
+                          <Trash2 size={18} />
 
-                              }
+                        </button>
 
-                            }}
-                          >
+                      </div>
 
-                            <Trash2 size={18} />
+                    </td>
 
-                          </button>
+                  </tr>
 
-                        </div>
+                );
 
-                      </td>
-
-                    </tr>
-
-                  );
-
-                })
-
-              )
+              })
 
             }
 
@@ -264,7 +306,9 @@ function MedicineTable() {
 
       {
 
-        showEditModal && (
+        showEditModal &&
+
+        (
 
           <EditMedicineModal
 

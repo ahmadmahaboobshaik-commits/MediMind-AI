@@ -55,6 +55,15 @@ function Inventory() {
           <Button
             onClick={() => setShowModal(true)}
           />
+           <button
+    className="refresh-btn"
+    onClick={() => {
+      localStorage.removeItem("medicines");
+      window.location.reload();
+    }}
+  >
+    🔄 Restore Inventory
+  </button>
 
         </div>
 

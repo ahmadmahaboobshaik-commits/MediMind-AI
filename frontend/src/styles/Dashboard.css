@@ -473,43 +473,207 @@
                     RESPONSIVE
 =========================================================== */
 
-@media(max-width:900px){
+/* ===========================================================
+                    RESPONSIVE
+=========================================================== */
+
+/* ---------- Tablet ---------- */
+
+@media (max-width:1024px){
 
 .main-content{
 
-margin-left:0;
+    margin-left:250px;
 
 }
 
 .page-content{
 
-padding:20px;
+    padding:28px;
 
 }
 
 .dashboard-hero{
 
-padding:30px;
+    padding:35px;
 
 }
 
 .dashboard-hero h1{
 
-font-size:32px;
+    font-size:38px;
 
 }
 
 .health-card{
 
-flex-direction:column;
-
-align-items:flex-start;
+    gap:20px;
 
 }
 
 .health-right{
 
-width:100%;
+    width:260px;
+
+}
+
+}
+
+
+/* ---------- Mobile ---------- */
+
+@media (max-width:768px){
+
+.main-content{
+
+    margin-left:0;
+
+}
+
+.page-content{
+
+    padding:18px;
+
+    padding-top:85px;
+
+}
+
+.dashboard-hero{
+
+    padding:28px 22px;
+
+    text-align:center;
+
+}
+
+.dashboard-hero h1{
+
+    font-size:30px;
+
+}
+
+.dashboard-hero p{
+
+    font-size:15px;
+
+}
+
+.cards{
+
+    grid-template-columns:1fr;
+
+}
+
+.health-card{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    padding:24px;
+
+}
+
+.health-right{
+
+    width:100%;
+
+}
+
+.health-right h1{
+
+    font-size:38px;
+
+}
+
+.insights,
+
+.quick-section,
+
+.system-status{
+
+    padding:22px;
+
+}
+
+.insight-grid,
+
+.quick-grid,
+
+.status-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.quick-grid button{
+
+    padding:24px;
+
+}
+
+}
+
+
+/* ---------- Small Phones ---------- */
+
+@media (max-width:480px){
+
+.page-content{
+
+    padding:14px;
+
+    padding-top:80px;
+
+}
+
+.dashboard-hero{
+
+    padding:22px 18px;
+
+}
+
+.dashboard-hero h1{
+
+    font-size:26px;
+
+}
+
+.dashboard-hero p{
+
+    font-size:14px;
+
+}
+
+.hero-tag{
+
+    font-size:12px;
+
+    padding:8px 14px;
+
+}
+
+.health-left h2{
+
+    font-size:24px;
+
+}
+
+.health-right h1{
+
+    font-size:32px;
+
+}
+
+.quick-grid button{
+
+    padding:20px;
+
+}
+
+.quick-grid span{
+
+    font-size:16px;
 
 }
 

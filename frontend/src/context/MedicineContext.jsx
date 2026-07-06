@@ -73,6 +73,21 @@ export function MedicineProvider({ children }) {
     );
 
   };
+  // Reset Inventory
+const resetInventory = () => {
+
+  localStorage.removeItem("medicines");
+
+  setMedicines(starterMedicines);
+
+};
+
+// Load Demo Medicines
+const loadDemoMedicines = () => {
+
+  setMedicines(starterMedicines);
+
+};
 
   return (
 
@@ -80,19 +95,22 @@ export function MedicineProvider({ children }) {
       value={{
 
         medicines,
-        addMedicine,
-        updateMedicine,
-        deleteMedicine,
+  addMedicine,
+  updateMedicine,
+  deleteMedicine,
 
-        searchTerm,
-        setSearchTerm,
+  resetInventory,
+  loadDemoMedicines,
 
-        selectedCategory,
-        setSelectedCategory,
+  searchTerm,
+  setSearchTerm,
 
-        // ⭐ AI Medicine
-        currentMedicine,
-        setCurrentMedicine,
+  selectedCategory,
+  setSelectedCategory,
+
+  currentMedicine,
+  setCurrentMedicine,
+
 
       }}
     >

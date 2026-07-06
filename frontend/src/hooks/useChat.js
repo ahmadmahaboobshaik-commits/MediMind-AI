@@ -13,6 +13,10 @@ export default function useChat() {
 
   const [loading, setLoading] = useState(false);
 
+  const [loadingMessage, setLoadingMessage] = useState(
+    "🤖 MediMind AI is thinking..."
+  );
+
   const [currentMedicine, setCurrentMedicine] = useState("");
 
   const quickQuestions = [
@@ -38,7 +42,7 @@ export default function useChat() {
 
     let rememberedMedicine = currentMedicine;
 
-    // Save medicine name only if it isn't a quick action
+    // Remember medicine name only if it isn't a quick action
     if (
       message.split(" ").length <= 3 &&
       !quickQuestions.includes(message)
@@ -70,9 +74,39 @@ Answer ONLY for the current medicine.
 
     setLoading(true);
 
+    const loadingSteps = [
+
+      "🧠 Understanding your question...",
+
+      "💊 Searching medicine knowledge...",
+
+      "📚 Checking pharmacy guidelines...",
+
+      "🤖 Preparing the best answer..."
+
+    ];
+
+    let index = 0;
+
+    setLoadingMessage(loadingSteps[0]);
+
+    const interval = setInterval(() => {
+
+      index++;
+
+      if (index < loadingSteps.length) {
+
+        setLoadingMessage(loadingSteps[index]);
+
+      }
+
+    }, 1200);
+
     try {
 
       const reply = await chatWithAI(finalPrompt);
+
+      clearInterval(interval);
 
       setMessages(prev => [
         ...prev,
@@ -82,7 +116,11 @@ Answer ONLY for the current medicine.
         }
       ]);
 
-    } catch (error) {
+    }
+
+    catch (error) {
+
+      clearInterval(interval);
 
       console.error(error);
 
@@ -91,11 +129,15 @@ Answer ONLY for the current medicine.
         {
           sender: "ai",
           message:
-            "❌ Unable to contact MediMind AI."
+            "⚠ AI is temporarily unavailable.\n\nPlease try again in a few seconds."
         }
       ]);
 
-    } finally {
+    }
+
+    finally {
+
+      clearInterval(interval);
 
       setLoading(false);
 
@@ -108,6 +150,8 @@ Answer ONLY for the current medicine.
     messages,
 
     loading,
+
+    loadingMessage,
 
     sendMessage,
 

@@ -1,38 +1,97 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
+
 import { useMedicines } from "../context/MedicineContext";
+
 import "./AddMedicineModal.css";
 
 function EditMedicineModal({ medicine, onClose }) {
+
   const { updateMedicine } = useMedicines();
 
   const [formData, setFormData] = useState({
+
     ...medicine,
+
   });
 
   function handleChange(e) {
+
     setFormData({
+
       ...formData,
+
       [e.target.name]: e.target.value,
+
     });
+
   }
 
   function handleUpdate() {
+
+    if (
+
+      !formData.name ||
+
+      !formData.manufacturer ||
+
+      !formData.batchNumber ||
+
+      !formData.stock ||
+
+      !formData.minStock ||
+
+      !formData.expiryDate ||
+
+      !formData.purchasePrice ||
+
+      !formData.sellingPrice ||
+
+      !formData.location
+
+    ) {
+
+      toast.error("⚠ Please fill all fields.");
+
+      return;
+
+    }
+
     updateMedicine({
+
       ...formData,
+
       stock: Number(formData.stock),
+
       minStock: Number(formData.minStock),
+
       purchasePrice: Number(formData.purchasePrice),
+
       sellingPrice: Number(formData.sellingPrice),
+
     });
 
-    onClose();
+    toast.success("✏ Medicine updated successfully!");
+
+    setTimeout(() => {
+
+      onClose();
+
+    }, 600);
+
   }
 
   return (
+
     <div className="modal-overlay">
+
       <div className="modal">
 
-        <h2>Edit Medicine</h2>
+        <h2>
+
+          Edit Medicine
+
+        </h2>
 
         <div className="form-grid">
 
@@ -120,24 +179,37 @@ function EditMedicineModal({ medicine, onClose }) {
         <div className="modal-buttons">
 
           <button
+
             className="cancel-btn"
+
             onClick={onClose}
+
           >
+
             Cancel
+
           </button>
 
           <button
+
             className="save-btn"
+
             onClick={handleUpdate}
+
           >
+
             Update Medicine
+
           </button>
 
         </div>
 
       </div>
+
     </div>
+
   );
+
 }
 
 export default EditMedicineModal;

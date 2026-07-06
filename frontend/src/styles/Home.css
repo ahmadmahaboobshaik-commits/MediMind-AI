@@ -704,7 +704,77 @@ color:#94a3b8;
 
 /* ============================= */
 
-@media(max-width:900px){
+/* =====================================================
+   TABLETS
+===================================================== */
+
+@media (max-width:1024px){
+
+.hero{
+
+padding:70px 40px;
+
+gap:50px;
+
+}
+
+.hero-left h1{
+
+font-size:64px;
+
+}
+
+.hero-left h2{
+
+font-size:34px;
+
+}
+
+.hero-left p{
+
+font-size:17px;
+
+}
+
+.hero-glass{
+
+width:100%;
+max-width:420px;
+
+}
+
+.feature-section{
+
+padding:50px 40px;
+
+}
+
+.modules{
+
+padding:50px 40px;
+
+}
+
+.cta{
+
+padding:80px 40px;
+
+}
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width:768px){
+
+.home{
+
+overflow-x:hidden;
+
+}
 
 .hero{
 
@@ -712,23 +782,73 @@ flex-direction:column;
 
 text-align:center;
 
-padding:70px 25px;
+padding:55px 22px;
+
+gap:40px;
+
+}
+
+.hero-left{
+
+min-width:100%;
+
+}
+
+.hero-tag{
+
+font-size:13px;
+
+padding:10px 16px;
 
 }
 
 .hero-left h1{
 
-font-size:52px;
+font-size:48px;
+
+line-height:1.05;
 
 }
 
 .hero-left h2{
 
-font-size:28px;
+font-size:26px;
+
+line-height:1.3;
+
+margin-top:12px;
+
+}
+
+.hero-left p{
+
+font-size:16px;
+
+line-height:1.8;
+
+max-width:100%;
 
 }
 
 .hero-buttons{
+
+flex-direction:column;
+
+align-items:center;
+
+width:100%;
+
+margin-top:30px;
+
+}
+
+.primary-btn,
+
+.secondary-btn{
+
+width:100%;
+
+max-width:340px;
 
 justify-content:center;
 
@@ -738,35 +858,194 @@ justify-content:center;
 
 justify-content:center;
 
+gap:30px;
+
+margin-top:35px;
+
+}
+
+.stats h3{
+
+font-size:28px;
+
+}
+
+.hero-right{
+
+width:100%;
+
 }
 
 .hero-glass{
 
 width:100%;
 
+padding:30px 24px;
+
+}
+
+.hero-icon svg{
+
+width:70px;
+
+height:70px;
+
 }
 
 .feature-section{
 
-padding:40px 25px;
+padding:35px 20px;
+
+}
+
+.feature-section h2{
+
+font-size:32px;
+
+}
+
+.feature-grid{
+
+grid-template-columns:1fr;
+
+gap:20px;
+
+}
+
+.feature-card{
+
+padding:24px;
 
 }
 
 .modules{
 
-padding:40px 25px;
+grid-template-columns:1fr;
+
+padding:35px 20px;
+
+gap:25px;
+
+}
+
+.module-card{
+
+padding:28px 22px;
+
+}
+
+.module-card p{
+
+line-height:1.8;
 
 }
 
 .cta{
 
-padding:70px 25px;
+padding:60px 20px;
 
 }
 
 .cta h2{
 
-font-size:34px;
+font-size:30px;
+
+line-height:1.3;
+
+}
+
+.cta p{
+
+font-size:16px;
+
+line-height:1.8;
+
+}
+
+.cta button{
+
+width:100%;
+
+max-width:320px;
+
+justify-content:center;
+
+}
+
+footer{
+
+padding:35px 20px;
+
+}
+
+footer p{
+
+font-size:15px;
+
+line-height:1.7;
+
+}
+
+}
+
+
+/* =====================================================
+   SMALL PHONES
+===================================================== */
+
+@media (max-width:480px){
+
+.hero{
+
+padding:45px 18px;
+
+}
+
+.hero-left h1{
+
+font-size:40px;
+
+}
+
+.hero-left h2{
+
+font-size:22px;
+
+}
+
+.hero-left p{
+
+font-size:15px;
+
+}
+
+.hero-tag{
+
+font-size:12px;
+
+}
+
+.feature-section h2{
+
+font-size:28px;
+
+}
+
+.cta h2{
+
+font-size:26px;
+
+}
+
+.hero-glass{
+
+padding:25px 18px;
+
+}
+
+.module-card{
+
+padding:24px 18px;
 
 }
 

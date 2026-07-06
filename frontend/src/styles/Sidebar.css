@@ -40,6 +40,104 @@
 
     scrollbar-color:#475569 transparent;
 
+    z-index:999;
+
+    transition:transform .35s ease;
+
+}
+
+/* ===========================================================
+                  MOBILE BUTTON
+=========================================================== */
+
+.mobile-menu-btn{
+
+    display:none;
+
+    position:fixed;
+
+    top:18px;
+
+    left:18px;
+
+    width:52px;
+
+    height:52px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#2563eb;
+
+    color:white;
+
+    cursor:pointer;
+
+    justify-content:center;
+
+    align-items:center;
+
+    box-shadow:0 10px 25px rgba(37,99,235,.35);
+
+    z-index:1200;
+
+}
+
+/* ===========================================================
+                  CLOSE BUTTON
+=========================================================== */
+
+.close-sidebar{
+
+    display:none;
+
+    position:absolute;
+
+    top:18px;
+
+    right:18px;
+
+    width:40px;
+
+    height:40px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:rgba(255,255,255,.10);
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.close-sidebar:hover{
+
+    background:rgba(255,255,255,.20);
+
+}
+
+/* ===========================================================
+                  OVERLAY
+=========================================================== */
+
+.sidebar-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.55);
+
+    backdrop-filter:blur(3px);
+
+    z-index:998;
+
 }
 
 /* ===========================================================
@@ -85,6 +183,7 @@
     margin-bottom:14px;
 
 }
+
 .sidebar-logo h2{
 
     font-size:25px;
@@ -172,7 +271,6 @@
         0 10px 25px rgba(37,99,235,.30);
 
 }
-
 /* ===========================================================
                     STATUS
 =========================================================== */
@@ -275,6 +373,7 @@
     transition:.3s;
 
 }
+
 .home-btn:hover{
 
     transform:translateY(-3px);
@@ -321,5 +420,97 @@
 .sidebar::-webkit-scrollbar-thumb:hover{
 
     background:#64748b;
+
+}
+
+/* ===========================================================
+                    TABLET
+=========================================================== */
+
+@media (max-width:1024px){
+
+.sidebar{
+
+    width:250px;
+
+}
+
+}
+
+/* ===========================================================
+                    MOBILE
+=========================================================== */
+
+@media (max-width:768px){
+
+.mobile-menu-btn{
+
+    display:flex;
+
+}
+
+.close-sidebar{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.sidebar{
+
+    transform:translateX(-100%);
+
+    width:270px;
+
+    z-index:999;
+
+}
+
+.sidebar.show{
+
+    transform:translateX(0);
+
+}
+
+.sidebar-logo{
+
+    margin-top:45px;
+
+}
+
+}
+
+/* ===========================================================
+                DESKTOP ONLY
+=========================================================== */
+
+@media (min-width:769px){
+
+.sidebar{
+
+    transform:none !important;
+
+}
+
+.sidebar-overlay{
+
+    display:none;
+
+}
+
+.mobile-menu-btn{
+
+    display:none !important;
+
+}
+
+.close-sidebar{
+
+    display:none !important;
+
+}
 
 }

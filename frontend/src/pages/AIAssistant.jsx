@@ -11,6 +11,7 @@ function AIAssistant() {
   const {
     messages,
     loading,
+    loadingMessage,
     sendMessage
   } = useChat();
 
@@ -63,7 +64,7 @@ function AIAssistant() {
 
             <ChatMessage
               sender="ai"
-              message="🤖 MediMind AI is analyzing..."
+            message={loadingMessage}
             />
 
           )

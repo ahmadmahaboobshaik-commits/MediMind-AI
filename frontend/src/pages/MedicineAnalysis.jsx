@@ -27,6 +27,9 @@ function MedicineAnalysis() {
 
   const [error, setError] = useState("");
 
+  const [speaking, setSpeaking] =
+    useState(false);
+
   async function handleAnalyze() {
 
     if (!file) return;
@@ -37,12 +40,14 @@ function MedicineAnalysis() {
 
       setError("");
 
-      setLoadingText("📤 Uploading Image...");
+      setLoadingText(
+        "📤 Uploading Image..."
+      );
 
       setTimeout(() => {
 
         setLoadingText(
-          "🧠 AI is reading the medicine..."
+          "🧠 AI is reading medicine..."
         );
 
       }, 1200);
@@ -58,10 +63,10 @@ function MedicineAnalysis() {
       setTimeout(() => {
 
         setLoadingText(
-          "📋 Preparing analysis..."
+          "📋 Preparing report..."
         );
 
-      }, 3800);
+      }, 4000);
 
       const result =
         await analyzeMedicineImage(file);
@@ -100,17 +105,118 @@ function MedicineAnalysis() {
 
   }, []);
 
+  // =============================
+  // READ ALOUD
+  // =============================
+
+  function readMedicine() {
+
+    if (!medicine) return;
+
+    window.speechSynthesis.cancel();
+
+    const speech = new SpeechSynthesisUtterance(
+
+`
+Medicine Name.
+
+${medicine.name}
+
+Confidence.
+
+${medicine.confidence}
+
+Uses.
+
+${medicine.uses}
+
+Dosage.
+
+${medicine.dosage}
+
+Warnings.
+
+${medicine.warnings}
+
+Side Effects.
+
+${medicine.sideEffects}
+
+Storage.
+
+${medicine.storage}
+
+Thank you for using MediMind AI.
+`
+
+    );
+
+    speech.rate = 0.95;
+
+    speech.pitch = 1;
+
+    speech.volume = 1;
+
+    const voices =
+      window.speechSynthesis.getVoices();
+
+    const englishVoice =
+      voices.find(
+
+        voice =>
+
+          voice.lang.includes("en")
+
+      );
+
+    if (englishVoice) {
+
+      speech.voice = englishVoice;
+
+    }
+
+    speech.onstart = () => {
+
+      setSpeaking(true);
+
+    };
+
+    speech.onend = () => {
+
+      setSpeaking(false);
+
+    };
+
+    window.speechSynthesis.speak(
+      speech
+    );
+
+  }
+
+  function stopReading() {
+
+    window.speechSynthesis.cancel();
+
+    setSpeaking(false);
+
+  }
+
   return (
 
     <div className="analysis-page">
 
       <button
+
         className="back-btn"
+
         onClick={() =>
           navigate("/medicine-assistant")
         }
+
       >
+
         ← Back
+
       </button>
 
       <div className="analysis-card">
@@ -122,9 +228,13 @@ function MedicineAnalysis() {
           (
 
             <img
+
               src={image}
+
               alt="Medicine"
+
               className="medicine-preview"
+
             />
 
           )
@@ -148,28 +258,35 @@ function MedicineAnalysis() {
           Medicine Analysis
 
         </h1>
-
-        {
+                {
 
           loading ?
 
           (
 
-            <p className="waiting">
+            <div className="analysis-status">
 
-              {loadingText}
+              <div className="spinner"></div>
 
-            </p>
+              <p className="waiting">
+
+                {loadingText}
+
+              </p>
+
+            </div>
 
           )
 
           :
 
+          medicine &&
+
           (
 
             <p className="waiting success">
 
-              ✅ Analysis Complete
+              ✅ Analysis Completed Successfully
 
             </p>
 
@@ -183,14 +300,7 @@ function MedicineAnalysis() {
 
           (
 
-            <p
-              style={{
-                color: "#ef4444",
-                textAlign: "center",
-                marginTop: "15px",
-                fontWeight: "600"
-              }}
-            >
+            <p className="error-message">
 
               {error}
 
@@ -206,146 +316,189 @@ function MedicineAnalysis() {
 
           (
 
-            <div className="result-section">
+            <>
 
-              <div className="result-box">
+              <div className="result-section">
 
-                <h3>
+                <div className="result-box">
 
-                  💊 Medicine Name
+                  <h3>
 
-                </h3>
+                    💊 Medicine Name
 
-                <p>
+                  </h3>
 
-                  {medicine.name || "--"}
+                  <p>
 
-                </p>
+                    {medicine.name}
+
+                  </p>
+
+                </div>
+
+                <div className="result-box">
+
+                  <h3>
+
+                    🎯 Confidence
+
+                  </h3>
+
+                  <span
+                    className={`confidence ${medicine.confidence?.toLowerCase()}`}
+                  >
+
+                    {medicine.confidence}
+
+                  </span>
+
+                </div>
+
+                <div className="result-box">
+
+                  <h3>
+
+                    ✅ Uses
+
+                  </h3>
+
+                  <p>
+
+                    {medicine.uses}
+
+                  </p>
+
+                </div>
+
+                <div className="result-box">
+
+                  <h3>
+
+                    💉 Dosage
+
+                  </h3>
+
+                  <p>
+
+                    {medicine.dosage}
+
+                  </p>
+
+                </div>
+
+                <div className="result-box">
+
+                  <h3>
+
+                    ⚠ Warnings
+
+                  </h3>
+
+                  <p>
+
+                    {medicine.warnings}
+
+                  </p>
+
+                </div>
+
+                <div className="result-box">
+
+                  <h3>
+
+                    ❌ Side Effects
+
+                  </h3>
+
+                  <p>
+
+                    {medicine.sideEffects}
+
+                  </p>
+
+                </div>
+
+                <div className="result-box">
+
+                  <h3>
+
+                    📦 Storage
+
+                  </h3>
+
+                  <p>
+
+                    {medicine.storage}
+
+                  </p>
+
+                </div>
 
               </div>
 
-              <div className="result-box">
+              <div className="analysis-buttons">
 
-                <h3>
+                {
 
-                  🎯 Confidence
+                  !speaking ?
 
-                </h3>
+                  (
 
-                <p>
+                    <button
 
-                  {medicine.confidence || "High"}
+                      className="speak-btn"
 
-                </p>
+                      onClick={readMedicine}
 
-              </div>
+                    >
 
-              <div className="result-box">
+                      🔊 Read Aloud
 
-                <h3>
+                    </button>
 
-                  ✅ Uses
+                  )
 
-                </h3>
+                  :
 
-                <p>
+                  (
 
-                  {medicine.uses || "--"}
+                    <button
 
-                </p>
+                      className="stop-btn"
 
-              </div>
+                      onClick={stopReading}
 
-              <div className="result-box">
+                    >
 
-                <h3>
+                      ⏹ Stop Reading
 
-                  💉 Dosage
+                    </button>
 
-                </h3>
+                  )
 
-                <p>
+                }
 
-                  {medicine.dosage || "--"}
+                <button
 
-                </p>
+                  className="ask-btn"
 
-              </div>
+                  onClick={() =>
+                    navigate("/assistant")
+                  }
 
-              <div className="result-box">
+                >
 
-                <h3>
+                  🤖 Ask AI Pharmacist
 
-                  ⚠ Warnings
-
-                </h3>
-
-                <p>
-
-                  {medicine.warnings || "--"}
-
-                </p>
+                </button>
 
               </div>
 
-              <div className="result-box">
-
-                <h3>
-
-                  ❌ Side Effects
-
-                </h3>
-
-                <p>
-
-                  {medicine.sideEffects || "--"}
-
-                </p>
-
-              </div>
-
-              <div className="result-box">
-
-                <h3>
-
-                  📦 Storage
-
-                </h3>
-
-                <p>
-
-                  {medicine.storage || "--"}
-
-                </p>
-
-              </div>
-
-            </div>
+            </>
 
           )
 
         }
-
-        <div className="analysis-buttons">
-
-          <button className="speak-btn">
-
-            🔊 Read Aloud
-
-          </button>
-
-          <button
-            className="ask-btn"
-            onClick={() =>
-              navigate("/assistant")
-            }
-          >
-
-            🤖 Ask AI
-
-          </button>
-
-        </div>
 
       </div>
 

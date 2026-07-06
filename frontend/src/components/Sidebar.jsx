@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 import {
@@ -9,155 +10,313 @@ import {
   Home,
   BrainCircuit,
   CircleDot,
+  Menu,
+  X,
 } from "lucide-react";
 
 import "../styles/Sidebar.css";
 
 function Sidebar() {
 
+  const [open, setOpen] = useState(false);
+
+  function closeSidebar() {
+
+    setOpen(false);
+
+  }
+
   return (
 
-    <aside className="sidebar">
+    <>
 
-      {/* Logo */}
+      {/* ===============================
+              MOBILE MENU BUTTON
+      =============================== */}
 
-      <div className="sidebar-logo">
+      <button
+        className="mobile-menu-btn"
+        onClick={() => setOpen(true)}
+      >
 
-        <div className="logo-circle">
+        <Menu size={28} />
 
-          <BrainCircuit size={34} />
+      </button>
+
+      {/* ===============================
+                BACKDROP
+      =============================== */}
+
+      {
+
+        open &&
+
+        <div
+
+          className="sidebar-overlay"
+
+          onClick={closeSidebar}
+
+        />
+
+      }
+
+      {/* ===============================
+                SIDEBAR
+      =============================== */}
+
+      <aside
+
+        className={`sidebar ${open ? "show" : ""}`}
+
+      >
+
+        {/* Close Button */}
+
+        <button
+
+          className="close-sidebar"
+
+          onClick={closeSidebar}
+
+        >
+
+          <X size={24} />
+
+        </button>
+
+        {/* ===============================
+                  LOGO
+        =============================== */}
+
+        <div className="sidebar-logo">
+
+          <div className="logo-circle">
+
+            <BrainCircuit size={34} />
+
+          </div>
+
+          <h2>
+
+            MediMind AI
+
+          </h2>
+
+          <p>
+
+            AI Pharmacy Platform
+
+          </p>
 
         </div>
 
-        <h2>
+        {/* ===============================
+                  MENU
+        =============================== */}
 
-          MediMind AI
+        <nav className="sidebar-menu">
 
-        </h2>
+          <NavLink
 
-        <p>
+            to="/dashboard"
 
-          AI Pharmacy Platform
+            onClick={closeSidebar}
 
-        </p>
+            className={({ isActive }) =>
 
-      </div>
+              isActive
 
-      {/* Menu */}
+                ? "menu-item active"
 
-      <nav className="sidebar-menu">
+                : "menu-item"
 
-        <NavLink
-          to="/dashboard"
-          className={({ isActive }) =>
-            isActive ? "menu-item active" : "menu-item"
-          }
-        >
+            }
 
-          <LayoutDashboard size={20} />
+          >
 
-          Dashboard
+            <LayoutDashboard size={20} />
 
-        </NavLink>
+            Dashboard
 
-        <NavLink
-          to="/inventory"
-          className={({ isActive }) =>
-            isActive ? "menu-item active" : "menu-item"
-          }
-        >
+          </NavLink>
 
-          <Package size={20} />
+          <NavLink
 
-          Inventory
+            to="/inventory"
 
-        </NavLink>
+            onClick={closeSidebar}
 
-        <NavLink
-          to="/ocr"
-          className={({ isActive }) =>
-            isActive ? "menu-item active" : "menu-item"
-          }
-        >
+            className={({ isActive }) =>
 
-          <ScanLine size={20} />
+              isActive
 
-          Smart Scanner
+                ? "menu-item active"
 
-        </NavLink>
+                : "menu-item"
 
-        <NavLink
-          to="/assistant"
-          className={({ isActive }) =>
-            isActive ? "menu-item active" : "menu-item"
-          }
-        >
+            }
 
-          <Bot size={20} />
+          >
 
-          AI Pharmacist
+            <Package size={20} />
 
-        </NavLink>
+            Inventory
 
-        <NavLink
-          to="/reports"
-          className={({ isActive }) =>
-            isActive ? "menu-item active" : "menu-item"
-          }
-        >
+          </NavLink>
 
-          <BarChart3 size={20} />
+          <NavLink
 
-          Reports
+            to="/ocr"
 
-        </NavLink>
+            onClick={closeSidebar}
 
-      </nav>
+            className={({ isActive }) =>
 
-      {/* AI Status */}
+              isActive
 
-      <div className="sidebar-status">
+                ? "menu-item active"
 
-        <div className="status-title">
+                : "menu-item"
 
-          System Status
+            }
+
+          >
+
+            <ScanLine size={20} />
+
+            Smart Scanner
+
+          </NavLink>
+
+          <NavLink
+
+            to="/assistant"
+
+            onClick={closeSidebar}
+
+            className={({ isActive }) =>
+
+              isActive
+
+                ? "menu-item active"
+
+                : "menu-item"
+
+            }
+
+          >
+
+            <Bot size={20} />
+
+            AI Pharmacist
+
+          </NavLink>
+
+          <NavLink
+
+            to="/reports"
+
+            onClick={closeSidebar}
+
+            className={({ isActive }) =>
+
+              isActive
+
+                ? "menu-item active"
+
+                : "menu-item"
+
+            }
+
+          >
+
+            <BarChart3 size={20} />
+
+            Reports
+
+          </NavLink>
+                    <NavLink
+
+            to="/reports"
+
+            onClick={closeSidebar}
+
+            className={({ isActive }) =>
+
+              isActive
+
+                ? "menu-item active"
+
+                : "menu-item"
+
+            }
+
+          >
+
+            <BarChart3 size={20} />
+
+            Reports
+
+          </NavLink>
+
+        </nav>
+
+        {/* ===============================
+                  SYSTEM STATUS
+        =============================== */}
+
+        <div className="sidebar-status">
+
+          <div className="status-title">
+
+            System Status
+
+          </div>
+
+          <div className="status-item">
+
+            <CircleDot size={12} />
+
+            Gemini AI Online
+
+          </div>
 
         </div>
 
-        <div className="status-item">
+        {/* ===============================
+                  BOTTOM
+        =============================== */}
 
-          <CircleDot size={12} />
+        <div className="sidebar-bottom">
 
-          Gemini AI Online
+          <NavLink
+
+            to="/home"
+
+            className="home-btn"
+
+            onClick={closeSidebar}
+
+          >
+
+            <Home size={20} />
+
+            Back to Home
+
+          </NavLink>
+
+          <div className="version">
+
+            MediMind AI v1.0
+
+          </div>
 
         </div>
 
-      </div>
+      </aside>
 
-      {/* Bottom */}
-
-      <div className="sidebar-bottom">
-
-        <NavLink
-          to="/home"
-          className="home-btn"
-        >
-
-          <Home size={20} />
-
-          Back to Home
-
-        </NavLink>
-
-        <div className="version">
-
-          MediMind AI v1.0
-
-        </div>
-
-      </div>
-
-    </aside>
+    </>
 
   );
 
