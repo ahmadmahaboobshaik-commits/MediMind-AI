@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 
 import { useMedicines } from "../context/MedicineContext";
-
+import AIAdvisor from "../components/AIAdvisor";
 import StatCard from "../components/StatCard";
 
 import {
@@ -83,6 +83,7 @@ function Dashboard() {
         </div>
 
       </section>
+      <AIAdvisor/>
 
       {/* CARDS */}
 

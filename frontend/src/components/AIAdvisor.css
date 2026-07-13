@@ -1,0 +1,284 @@
+/* ===========================================================
+                    AI PHARMACY ADVISOR
+=========================================================== */
+
+.advisor-card{
+
+    margin-bottom:35px;
+
+    padding:35px;
+
+    border-radius:28px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ffffff,
+        #f8fbff
+    );
+
+    box-shadow:
+        0 18px 40px rgba(15,23,42,.08);
+
+}
+
+/* ================= HEADER ================= */
+
+.advisor-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    margin-bottom:35px;
+
+}
+
+.advisor-icon{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:20px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:
+    linear-gradient(
+        135deg,
+        #2563eb,
+        #4f46e5
+    );
+
+    color:white;
+
+    box-shadow:
+        0 15px 30px rgba(79,70,229,.25);
+
+}
+
+.advisor-header h2{
+
+    margin:0;
+
+    font-size:30px;
+
+    color:#0f172a;
+
+}
+
+.advisor-header p{
+
+    margin-top:6px;
+
+    color:#64748b;
+
+}
+
+/* ================= GRID ================= */
+
+.advisor-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:22px;
+
+    margin-bottom:35px;
+
+}
+
+.advisor-box{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    transition:.35s;
+
+    border:1px solid #e2e8f0;
+
+    box-shadow:
+        0 10px 22px rgba(15,23,42,.05);
+
+}
+
+.advisor-box:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:
+        0 20px 35px rgba(37,99,235,.15);
+
+}
+
+.advisor-box svg{
+
+    color:#2563eb;
+
+    margin-bottom:15px;
+
+}
+
+.advisor-box h3{
+
+    margin-bottom:8px;
+
+    font-size:28px;
+
+    color:#0f172a;
+
+}
+
+.advisor-box span{
+
+    color:#64748b;
+
+}
+
+.danger{
+
+    border:2px solid #fecaca;
+
+}
+
+.danger h3{
+
+    color:#dc2626;
+
+}
+
+/* ================= RECOMMENDATION ================= */
+
+.advisor-recommendation{
+
+    margin-bottom:30px;
+
+    padding:28px;
+
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #2563eb,
+        #4f46e5
+    );
+
+    color:white;
+
+}
+
+.recommend-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:15px;
+
+}
+
+.advisor-recommendation p{
+
+    line-height:1.8;
+
+    color:#e0e7ff;
+
+}
+
+/* ================= ACTIONS ================= */
+
+.advisor-actions{
+
+    background:#f8fafc;
+
+    padding:28px;
+
+    border-radius:20px;
+
+}
+
+.advisor-actions h3{
+
+    margin-bottom:20px;
+
+    color:#0f172a;
+
+}
+
+.action-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:15px;
+
+    font-size:16px;
+
+    color:#334155;
+
+}
+
+.action-item svg{
+
+    color:#22c55e;
+
+}
+
+.action-item strong{
+
+    color:#2563eb;
+
+    margin-left:6px;
+
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+.advisor-card{
+
+padding:22px;
+
+}
+
+.advisor-header{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+.advisor-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.advisor-header h2{
+
+font-size:24px;
+
+}
+
+}
